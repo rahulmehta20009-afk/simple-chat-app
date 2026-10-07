@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Chat</title>
+  <style>
+    body{margin:0;font-family:Arial;background:#eee}
+    header{background:#075e54;color:white;padding:18px;font-size:22px}
+    #chat{padding:15px;height:75vh;overflow:auto}
+    .msg{background:#dcf8c6;padding:10px;margin:8px 0;border-radius:10px;text-align:right}
+    .box{position:fixed;bottom:0;width:100%;display:flex}
+    input{flex:1;padding:15px;border:0;font-size:16px}
+    button{padding:15px;background:#075e54;color:white;border:0}
+  </style>
+</head>
+<body>
+
+<header>💬 My Chat</header>
+
+<div id="chat"></div>
+
+<div class="box">
+  <input id="msg" placeholder="Message likho...">
+  <button onclick="send()">Send</button>
+</div>
+
+<script>
+function send(){
+  let input=document.getElementById("msg");
+  let text=input.value.trim();
+  if(text=="") return;
+
+  let chat=document.getElementById("chat");
+  chat.innerHTML += '<div class="msg">'+text+'</div>';
+  input.value="";
+  chat.scrollTop=chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>
